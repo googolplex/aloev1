@@ -10,37 +10,29 @@ import org.openxava.util.*;
 
 @Entity
 @Table(name="CLL_PERIODOCORTE")
+@Tab(editors="List", properties= "fechaCorte,quiensolicita.nombre", defaultOrder="${fechaCorte} desc")
 public class PeriodoCorte extends SuperClaseFeliz {
 
 	@Column(name="FECHACORTE")
 	@DefaultValueCalculator(CurrentDateCalculator.class)
 	private Date fechaCorte = new java.util.Date() ;
-	
+
 	@Required
-	@Stereotype("MEMO")
-	@Column(length=200,nullable=false,name="CLL_COMENTARIO")
-	private String comentario ;
-		
-	@Required
-	@DescriptionsList(descriptionProperties="quiensolicita.nombre")
+	@DescriptionsList(descriptionProperties="nombre")
 	@ManyToOne(fetch=FetchType.LAZY,optional=false)	
 	@JoinColumn(name="SOLICITADOPOR_ID", referencedColumnName="ID")	
-	private SolicitadoPor quiensolicita;
-
+	private SolicitadoPor quiensolicita;	
+	
+	@Stereotype("MEMO")
+	@Column(length=500,nullable=false,name="CLL_COMENTARIO")
+	private String comentario ;
+		
 	public Date getFechaCorte() {
 		return fechaCorte;
 	}
 
 	public void setFechaCorte(Date fechaCorte) {
 		this.fechaCorte = fechaCorte;
-	}
-
-	public String getComentario() {
-		return comentario;
-	}
-
-	public void setComentario(String comentario) {
-		this.comentario = comentario.toUpperCase().trim();
 	}
 
 	public SolicitadoPor getQuiensolicita() {
@@ -51,6 +43,14 @@ public class PeriodoCorte extends SuperClaseFeliz {
 		this.quiensolicita = quiensolicita;
 	}
 
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario.toUpperCase().trim();
+	}
+		
 	@PreUpdate
 	private void ultimoPaso() {
 			Date mifechora = new java.util.Date() ;

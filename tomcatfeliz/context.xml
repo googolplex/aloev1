@@ -37,7 +37,7 @@
 	      url="jdbc:hsqldb:file:../data/openxava-test-db"/>
     -->
     
-    <ResourceLink global="jdbc/librocomprasv3" 
-    	name="jdbc/librocomprasv3" 
+    <ResourceLink global="jdbc/aloev1" 
+    	name="jdbc/aloev1" 
     	type="javax.sql.DataSource"/>    
 </Context>

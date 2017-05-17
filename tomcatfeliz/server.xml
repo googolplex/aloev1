@@ -39,79 +39,23 @@
     -->
     <Resource auth="Container" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" name="UserDatabase" pathname="conf/tomcat-users.xml" type="org.apache.catalina.UserDatabase"/>
 
-
-	<!-- postgre + tomcat + connection properties para AMAZON -->
-    <Resource auth="Container" 
-	    	description="Conexion al postgre en amazon ec2"
-	    	dialect="org.hibernate.dialect.PostgreSQLDialect"
-			driverClassName="org.postgresql.Driver"	    	     	 
-	    	initialSize="5" 
-	    	maxActive="20" 
-	    	maxIdle="5" 
-	    	maxWait="10000" 
-	    	minEvictableIdleTimeMillis="60000" 
-	    	minIdle="5" 
-	    	name="jdbc/librocomprasv3"  
-	    	type="javax.sql.DataSource" 
-	    	url="jdbc:postgresql://52.207.31.88:5432/manzanas" 
-	    	username="manzanas"
-	    	password="googolplex123abc"
-	    	connectionProperties="hibernate.temp.use_jdbc_metadata_defaults=false;hibernate.jdbc.use_get_generated_keys=true"
-	    	validationQuery="select now()"/>
-
-
-   <!--
-
 	<Resource auth="Container" 
-		description="Conexion al oracle desarrollo" 
-		dialect="org.hibernate.dialect.Oracle10gDialect" 
-		driverClassName="oracle.jdbc.OracleDriver" 
-		initialSize="5" 
-		maxActive="50" 
-		maxIdle="25" 
-		maxWait="10000" 
-		minEvictableIdleTimeMillis="60000" 
-		minIdle="5" 
-		name="jdbc/librocomprasv3" 
-		password="googolplex123abc" 
-		type="javax.sql.DataSource" 
-		url="jdbc:oracle:thin:@192.168.0.78:49161:xe" 
-		username="manzanas" 
-		validationQuery="select sysdate from dual"/>
-
-
-	<Resource auth="Container" dialect="org.hibernate.dialect.MySQLDialect" 
-		driverClassName="com.mysql.jdbc.Driver" 
-		initialSize="5" 
-		maxActive="20" maxIdle="5" 
-		maxWait="10000" 
-		minEvictableIdleTimeMillis="60000" 
-		minIdle="5" 
-		name="jdbc/peluMysql" 
-		password="pelu123abc" 
-		type="javax.sql.DataSource" 
-		url="jdbc:mysql://localhost:3306/peluqueria" 
-		username="upeluqueria" validationQuery="select now()"/>
-
-	<Resource auth="Container" 
-		dialect="org.hibernate.dialect.SQLServerDialect" 
-		driverClassName="net.sourceforge.jtds.jdbc.Driver" 
-		initialSize="5" 
-		maxActive="50" 
-		maxIdle="25" 
-		maxWait="10000" 
-		minEvictableIdleTimeMillis="60000" 
-		minIdle="5" 
-		name="jdbc/peluSQLserver" 
-		password="pelu123abc" 
-		type="javax.sql.DataSource" 
-		url="jdbc:jtds:sqlserver://192.168.0.136:1433/peluqueria" 
-		username="upeluqueria" 
-		validationQuery="select 1"/>
-	-->
-
-
-	    	    
+	description="Conexion al oracle" 
+	dialect="org.hibernate.dialect.Oracle10gDialect" 
+	driverClassName="oracle.jdbc.OracleDriver" 
+	initialSize="5" 
+	maxActive="50" 
+	maxIdle="25" 
+	maxWait="10000" 
+	minEvictableIdleTimeMillis="60000" 
+	minIdle="5" 
+	name="jdbc/aloev1" 
+	password="password" 
+	type="javax.sql.DataSource" 
+	url="jdbc:oracle:thin:@192.168.0.30:1521:orcl" 
+	username="usuario" 
+	validationQuery="select sysdate from dual"/>
+    	    
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share
@@ -198,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="librocomprasv3" path="/librocomprasv3" reloadable="true" source="org.eclipse.jst.jee.server:librocomprasv3"/></Host>
+       <Context docBase="aloe2017" path="/aloe2017" reloadable="true" source="org.eclipse.jst.jee.server:aloe2017"/></Host>
     </Engine>
   </Service>
 </Server>

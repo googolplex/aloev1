@@ -4600,8 +4600,8 @@
     </welcome-file-list>
 
 <resource-ref>
-		<description>Conexion al contexto librocomprasv3</description>
-		<res-ref-name>jdbc/librocomprasv3</res-ref-name>
+		<description>Conexion al contexto aloev1</description>
+		<res-ref-name>jdbc/aloev1</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 </resource-ref>
